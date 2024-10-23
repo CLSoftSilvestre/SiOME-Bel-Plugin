@@ -1,0 +1,17 @@
+<mat-card class="example-card" appearance="raised">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{model.name}}</mat-card-title>
+      <mat-card-subtitle>Bel - {{model.process}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <img src="{{model.imgPath}}" alt="Photo of equipment" style="padding: 5px; max-height: 150px; image-rendering:pixelated; object-fit: contain;">
+    <mat-card-content>
+      <p>{{model.description}}</p>
+    </mat-card-content>
+    <mat-card-actions id="actions">
+      <button mat-raised-button (click)="instantiateModel()" style="margin-right: 10px;">INSTANTIATE THIS MODEL</button>
+      <button mat-button>DETAILS</button>
+    </mat-card-actions>
+  </mat-card>
+
