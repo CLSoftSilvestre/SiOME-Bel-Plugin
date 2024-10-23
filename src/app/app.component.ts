@@ -10,7 +10,7 @@ import { SiomeApiProviderService } from './services/siome-api-provider.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'SiOME Base Plugin';
+  title = 'SiOME Bel Plugin';
 
   @Output() pluginEvent = new EventEmitter<IPluginEvent>();
 

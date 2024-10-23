@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/siome-base-plugin",
+            "outputPath": "dist/siome-bel-plugin",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -113,6 +113,7 @@
   "cli": {
     "schematicCollections": [
       "@angular-eslint/schematics"
-    ]
+    ],
+    "analytics": false
   }
 }

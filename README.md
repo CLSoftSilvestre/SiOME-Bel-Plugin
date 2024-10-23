@@ -28,6 +28,12 @@ npm run build-plugin
 
 The build artifacts will be stored in the `dist/releases` directory.
 
+To run on development mode:
+
+```bash
+npm run start
+```
+
 
 ## License and Copyright
 
