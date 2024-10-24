@@ -1,6 +1,6 @@
 import { Injector, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { createCustomElement } from '@angular/elements';
 import { AppComponent } from './app.component';
 import { name, version, as_web_component } from '../config';
@@ -12,23 +12,37 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDividerModule} from '@angular/material/divider';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { ModalFormComponent } from './components/modal-form/modal-form.component';
+import { ModalDetailsComponent } from './components/modal-details/modal-details.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HelloWorldComponent,
-    ModelComponent
+    ModelComponent,
+    ModalFormComponent,
+    ModalDetailsComponent
   ],
   imports: [
     BrowserModule, 
-    FormsModule, 
+    FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatCardModule,
     MatGridListModule,
-    MatDividerModule
+    MatDividerModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatExpansionModule
   ],
   providers: [
     provideAnimationsAsync()

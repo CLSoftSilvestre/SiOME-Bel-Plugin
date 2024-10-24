@@ -10,8 +10,8 @@
       <p>{{model.description}}</p>
     </mat-card-content>
     <mat-card-actions id="actions">
-      <button mat-raised-button (click)="instantiateModel()" style="margin-right: 10px;">INSTANTIATE THIS MODEL</button>
-      <button mat-button>DETAILS</button>
+      <button mat-raised-button (click)="openDialog()" style="margin-right: 10px;">INSTANTIATE THIS MODEL</button>
+      <button mat-button (click)="openDetails()">DETAILS</button>
     </mat-card-actions>
   </mat-card>
 

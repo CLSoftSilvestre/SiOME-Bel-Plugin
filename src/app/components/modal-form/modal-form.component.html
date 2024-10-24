@@ -1,0 +1,35 @@
+<h2 mat-dialog-title>New {{data.model.name}}</h2>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-dialog-content>    
+        <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Brand</mat-label>
+            <input matInput formControlName="brand">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Model</mat-label>
+            <input matInput formControlName="model">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Serial number</mat-label>
+            <input matInput formControlName="serial">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Manufacturing year</mat-label>
+            <input matInput type="number" min="1900" max="2050" formControlName="year">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Location</mat-label>
+            <input matInput formControlName="location">
+        </mat-form-field>       
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end">
+        <button mat-button type="button" (click)="onNoClick()">Cancel</button>
+        <button mat-button type="submit">Create</button>
+    </mat-dialog-actions>
+
+</form>
