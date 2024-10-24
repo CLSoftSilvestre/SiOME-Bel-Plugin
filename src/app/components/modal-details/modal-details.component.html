@@ -15,7 +15,9 @@
                 <mat-panel-title><b>{{child.name}}</b></mat-panel-title>
                 <mat-panel-description> ns={{child.typeDefinition.namespace}};i={{child.typeDefinition.value}} </mat-panel-description>
                 </mat-expansion-panel-header>
-                <p>Elements of the child</p>
+                <div *ngFor="let item of child.children">
+                    <p>🏷️ ns={{item.namespace}};i={{item.value}}</p>
+                </div>
             </mat-expansion-panel>
         </div>
     </mat-accordion>
