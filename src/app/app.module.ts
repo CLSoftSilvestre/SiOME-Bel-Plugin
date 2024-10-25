@@ -21,6 +21,9 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { ModalFormComponent } from './components/modal-form/modal-form.component';
 import { ModalDetailsComponent } from './components/modal-details/modal-details.component';
 
+// Pipes to manage OPC data
+import { NamePipe } from './pipes/name.pipe';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +31,8 @@ import { ModalDetailsComponent } from './components/modal-details/modal-details.
     HelloWorldComponent,
     ModelComponent,
     ModalFormComponent,
-    ModalDetailsComponent
+    ModalDetailsComponent,
+    NamePipe
   ],
   imports: [
     BrowserModule, 

@@ -16,7 +16,7 @@
                 <mat-panel-description> ns={{child.typeDefinition.namespace}};i={{child.typeDefinition.value}} </mat-panel-description>
                 </mat-expansion-panel-header>
                 <div *ngFor="let item of child.children">
-                    <p>🏷️ ns={{item.namespace}};i={{item.value}}</p>
+                    <p>🏷️ {{ item.namespace | name : item.value | async }}</p>
                 </div>
             </mat-expansion-panel>
         </div>
