@@ -20,11 +20,11 @@ export class ModalFormComponent implements OnInit {
   constructor (private siomeApiProvider: SiomeApiProviderService, private fb: FormBuilder, public dialogRef: MatDialogRef<ModalFormComponent>,@Inject(MAT_DIALOG_DATA) public data: any) {
     this.form = this.fb.group({
       name: ['', Validators.required],
-      brand: ['', Validators.required],
-      model: ['', Validators.required],
-      serial: ['', Validators.required],
+      brand: ['', Validators.nullValidator],
+      model: ['', Validators.nullValidator],
+      serial: ['', Validators.nullValidator],
       year: ['', Validators.nullValidator],
-      location: ['', Validators.required]
+      location: ['', Validators.nullValidator]
     });
   }
 
