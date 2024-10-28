@@ -13,10 +13,20 @@
             <mat-expansion-panel>
                 <mat-expansion-panel-header>
                 <mat-panel-title><b>{{child.name}}</b></mat-panel-title>
-                <mat-panel-description> ns={{child.typeDefinition.namespace}};i={{child.typeDefinition.value}} </mat-panel-description>
+                <mat-panel-description></mat-panel-description>
                 </mat-expansion-panel-header>
                 <div *ngFor="let item of child.children">
-                    <p>🏷️ {{ item.namespace | name : item.value | async }}</p>
+                    <mat-list>
+                        <mat-list-item>
+                            <span matListItemTitle>{{ item.namespace | class : item.value | async }} {{ item.namespace | name : item.value | async }}</span>
+                            <div *ngIf="((item.namespace | opcnode : item.value | async)!.children) as innerChilds">
+                                <div *ngFor="let inner of innerChilds">
+                                    <span matListItemLine>{{ inner.namespace | class : inner.value | async }} {{ inner.namespace | name : inner.value | async }}</span>
+                                </div>
+                            </div>
+                        </mat-list-item>
+                    </mat-list>
+                    <mat-divider></mat-divider>
                 </div>
             </mat-expansion-panel>
         </div>

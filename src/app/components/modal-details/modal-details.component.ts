@@ -37,8 +37,7 @@ export class ModalDetailsComponent implements OnInit {
     await this.siomeApi.createLogNode("Bel Plugin - Debug");
     await this.siomeApi.newLogEntry("Browsing ID " + id + ".", "info");
 
-    //return (await this.siomeApi.getOpcNode(id))
-    return "OK";
+    return (await this.siomeApi.getOpcNode(id))
   }
 
 }
