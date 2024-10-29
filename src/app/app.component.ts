@@ -8,6 +8,9 @@ import { ModelInterface } from './types/model.interface';
 import { Observable } from 'rxjs';
 import { SupportedFileFormat } from './shared/public-api/enums/supported-file-format';
 
+import { MatDialog } from '@angular/material/dialog';
+import { ModalEditorComponent } from './components/modal-editor/modal-editor.component';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -35,9 +38,25 @@ export class AppComponent {
     }
   }
 
-  constructor(private siomeApiProvider: SiomeApiProviderService, private modelsService: ModelsService) {}
+  constructor(private siomeApiProvider: SiomeApiProviderService, private modelsService: ModelsService, public dialog: MatDialog) {}
 
   ngOnInit() {
     this.models$ = this.modelsService.getModels();
+  }
+
+
+  // TEST Code:
+  async openEditor(){
+    const dialogRef = this.dialog.open(ModalEditorComponent, {
+      width: '800px', //was 250
+      data: {
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result);
+    });
+
   }
 }

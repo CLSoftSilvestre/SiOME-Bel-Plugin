@@ -1,5 +1,10 @@
 
-<h1>Bel equipment models library</h1>
+<button style="width: 200px; margin: 8px;" mat-raised-button disabled color="primary" (click)="openEditor()">Model creator</button>
+<button style="width: 200px; margin: 8px;" mat-raised-button color="primary" (click)="openEditor()">Equipment editor</button>
+
+<mat-divider></mat-divider>
+
+<h1>Equipment models library</h1>
 
 <mat-grid-list cols="4" rowHeight="1:1" *ngIf="(models$ | async) as models">
 

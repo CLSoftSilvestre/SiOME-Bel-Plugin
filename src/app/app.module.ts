@@ -17,15 +17,19 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatListModule} from '@angular/material/list';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {CdkTreeModule} from '@angular/cdk/tree';
 
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { ModalFormComponent } from './components/modal-form/modal-form.component';
 import { ModalDetailsComponent } from './components/modal-details/modal-details.component';
+import { ModalEditorComponent } from './components/modal-editor/modal-editor.component';
 
 // Pipes to manage OPC data
 import { NamePipe } from './pipes/name.pipe';
 import { ClassPipe } from './pipes/class.pipe';
 import { OpcnodePipe } from './pipes/opcnode.pipe';
+
 
 
 @NgModule({
@@ -35,6 +39,7 @@ import { OpcnodePipe } from './pipes/opcnode.pipe';
     ModelComponent,
     ModalFormComponent,
     ModalDetailsComponent,
+    ModalEditorComponent,
     NamePipe,
     ClassPipe,
     OpcnodePipe
@@ -52,7 +57,9 @@ import { OpcnodePipe } from './pipes/opcnode.pipe';
     MatFormFieldModule,
     MatInputModule,
     MatExpansionModule,
-    MatListModule
+    MatListModule,
+    DragDropModule,
+    CdkTreeModule
   ],
   providers: [
     provideAnimationsAsync()
