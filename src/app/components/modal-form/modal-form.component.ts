@@ -6,6 +6,8 @@ import { SiomeApiProviderService } from '../../services/siome-api-provider.servi
 import { ISiomeApi } from '../../shared/public-api/interfaces/siome-api.interface';
 import { NodeClass } from 'src/app/shared/public-api/enums/node-classes';
 import { IAddObjectParameter } from 'src/app/shared/public-api/interfaces/add-object-parameter';
+import { AttributeId } from 'src/app/shared/public-api/enums/attribute-ids';
+import { ILocalizedText } from 'src/app/shared/public-api/opcua-types/interfaces/localized-text.interface';
 
 @Component({
   selector: 'app-modal-form',
@@ -71,7 +73,26 @@ export class ModalFormComponent implements OnInit {
         typeDefinition: this.data.model.id // was ns=0;i=58 (Type of object)
       }
   
+      // Adds the element to the Machines ('ns=2;i=1001') folder.
       const returnValue = await this.siomeApi.addChild("ns=2;i=1001", params)
+
+      // Try to get the Identification Object and the update the Manufacturer and Serial Number
+      let target = "ns=" + returnValue.target.namespace + ";i=" + returnValue.target.value;
+      const identificationObject = await this.siomeApi.searchNode(target,"Identification")
+
+      // Set the manufacturer data
+      let manufacturer = await this.siomeApi.searchNode(identificationObject.id,"Manufacturer")
+      const manufacturerData: ILocalizedText = {
+        locale: "en",
+        text: this.form.value.manufacturer
+      }
+      await this.siomeApi.newLogEntry("Updating the value of the node "+ manufacturer.browseName + " with id " + manufacturer.id + " and values " + manufacturerData.text +".", "info");
+      await this.siomeApi.setAttribute(AttributeId.Value, manufacturer.id, manufacturerData);
+
+      // Set the serial number data
+      let serial = await this.siomeApi.searchNode(identificationObject.id,"SerialNumber")
+      await this.siomeApi.newLogEntry("Updating the value of the node "+ serial.browseName + " with id " + serial.id + " and values " + this.form.value.serial +".", "info");
+      await this.siomeApi.setAttribute(AttributeId.Value, serial.id, this.form.value.serial);
 
     }
 

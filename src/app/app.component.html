@@ -1,17 +1,29 @@
 
-<button style="width: 200px; margin: 8px;" mat-raised-button disabled color="primary" (click)="openEditor()">Model creator</button>
-<button style="width: 200px; margin: 8px;" mat-raised-button color="primary" (click)="openEditor()">Equipment editor</button>
+<div id="top_banner">
+    <button style="width: 200px; margin: 8px;" mat-raised-button disabled color="primary" (click)="openEditor()">Model creator</button>
+    <button style="width: 200px; margin: 8px;" mat-raised-button color="primary" (click)="openEditor()">Equipment editor</button>
+    <div class="name_plugin">
+        <span id="name_plugin">Bel Model Plugin</span>
+    </div>
+    
+</div>
+
 
 <mat-divider></mat-divider>
 
-<h1>Equipment models library</h1>
+<div class="scroll">
+    <h1>Equipment models library</h1>
 
-<mat-grid-list cols="4" rowHeight="1:1" *ngIf="(models$ | async) as models">
+    <mat-grid-list cols="4" rowHeight="1:1" *ngIf="(models$ | async) as models">
 
-    <div *ngFor="let model of models">
-        <mat-grid-tile>
-            <app-model [model]="model"></app-model>
-        </mat-grid-tile>
-    </div>
+        <div *ngFor="let model of models">
+            <mat-grid-tile>
+                <app-model [model]="model"></app-model>
+            </mat-grid-tile>
+        </div>
 
-</mat-grid-list>
+    </mat-grid-list>
+
+</div>
+
+

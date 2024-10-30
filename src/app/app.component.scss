@@ -1,1 +1,25 @@
 @import "../styles.css";
+
+#top_banner {
+    background-image: linear-gradient(to right, #fff, #9bafbe);
+}
+
+.name_plugin {
+    float: right;
+    align-items: center;
+    margin-top: 12px;
+    margin-right: 10px;
+}
+
+#name_plugin {
+    text-align: right;
+    font-size:x-large;
+    font-weight:600;
+    color: #fff;   
+}
+
+div.scroll {
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: justify;
+}
